@@ -72,7 +72,8 @@ set first_name =
  case
 	 when first_name = 'HARPO'
 		 then 'GROUCHO'
-	 end
+	else 'MUCHO GROUCHO'
+ end
 where actor_id = 172;
 
 -- 5a. You cannot locate the schema of the address table. Which query would you use to re-create it?
