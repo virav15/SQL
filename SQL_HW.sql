@@ -23,7 +23,7 @@ where first_name = 'Joe';
 select first_name, last_name, actor_id from actor
 where last_name like '%GEN%';
 
--- Find all actors whose last names contain the letters LI. This time, order the rows by last name and first name, in that order:
+-- 2c Find all actors whose last names contain the letters LI. This time, order the rows by last name and first name, in that order:
 
 select first_name, last_name, actor_id from actor
 where last_name like '%LI%'
@@ -38,13 +38,13 @@ where country in ('Afghanistan', 'Bangladesh', 'China');
 --     You don't think you will be performing queries on a description, so create a column in the table actor named description and use the data type BLOB (Make sure to research the type BLOB, 
 --     as the difference between it and VARCHAR are significant).
 
-alter table actor add column middle_name varchar(30) after first_name;
+alter table actor add column Description varchar(30) after first_name;
 select * from actor;
 
 -- 3b. Very quickly you realize that entering descriptions for each actor is too much effort. Delete the description column.
 
-alter table actor modify column middle_name blob;
-alter table actor drop column middle_name;
+alter table actor modify column Description blob;
+alter table actor drop column Description;
 
 -- 4a. List the last names of actors, as well as how many actors have that last name.
 
@@ -72,8 +72,7 @@ set first_name =
  case
 	 when first_name = 'HARPO'
 		 then 'GROUCHO'
-	else 'MUCHO GROUCHO'
- end
+	 end
 where actor_id = 172;
 
 -- 5a. You cannot locate the schema of the address table. Which query would you use to re-create it?
@@ -123,7 +122,7 @@ order by cs.last_name;
 
 select title from  film
 where title like 'K%'
-or  title LIKE 'Q%'
+or  title like 'Q%'
 and language_id IN
   (
    select language_id from language
